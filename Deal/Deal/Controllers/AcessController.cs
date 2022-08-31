@@ -16,5 +16,11 @@ namespace DealWebApi.Controllers
             Users entity = repository.Logon(usuarioDto.UserEmail, usuarioDto.UserSenha);
             return entity;
         }
+
+        [HttpGet("GetByName")]
+        public Users Filtro([FromQuery]string name)
+        {
+            return new Users();
+        }
     }
 }

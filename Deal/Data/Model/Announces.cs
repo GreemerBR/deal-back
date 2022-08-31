@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Metadata;
+using System.Text.Json.Serialization;
 
 namespace Data.Model
 {
@@ -11,7 +11,7 @@ namespace Data.Model
         public string AnunCep { get; set; }
         public string AnunEndereco { get; set; }
         public string AnunData { get; set; }
-        public decimal AnunValor { get; set; }
+        public double AnunValor { get; set; }
 
         [Column(TypeName = "BYTEA")]
         public byte[] AnunImage1 { get; set; }
@@ -19,7 +19,9 @@ namespace Data.Model
         public byte[] AnunImage2 { get; set; }
         [Column(TypeName = "BYTEA")]
         public byte[] AnunImage3 { get; set; }
-
-        public Users User { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        [JsonIgnore]
+        public Users? User { get; set; }
     }
 }

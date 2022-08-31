@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations
 {
     [DbContext(typeof(DealContext))]
-    partial class DealContextModelSnapshot : ModelSnapshot
+    [Migration("20220831185503_UpdateTableAnnunce")]
+    partial class UpdateTableAnnunce
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,8 +68,8 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("AnunValor")
-                        .HasColumnType("double precision");
+                    b.Property<decimal>("AnunValor")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
