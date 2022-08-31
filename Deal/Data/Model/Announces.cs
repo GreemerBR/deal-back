@@ -20,6 +20,6 @@ namespace Data.Model
         [Column(TypeName = "BYTEA")]
         public byte[] AnunImage3 { get; set; }
 
-        public Users UserId { get; set; }
+        public Users User { get; set; }
     }
 }

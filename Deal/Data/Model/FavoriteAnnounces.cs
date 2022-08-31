@@ -2,8 +2,8 @@
 {
     public class FavoriteAnnounces : BaseModel
     {
-        public Users UserId { get; set; }
-        public Announces AnunId { get; set; }
+        public Users User { get; set; }
+        public Announces Anun { get; set; }
 
     }
 }
