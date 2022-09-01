@@ -10,9 +10,9 @@ namespace DealWebApi.Controllers
     {
         private R _repository;
 
-        public GenericController(R repository)
+        public GenericController()
         {
-            this._repository = repository;
+            this._repository = Activator.CreateInstance<R>();
         }
 
         [HttpGet()]

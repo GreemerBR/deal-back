@@ -5,9 +5,9 @@ namespace Data.Model
 {
     public class Users : BaseModel
     {
-        public string UserNomeCompleto { get; set; }
-        public string UserEmail { get; set; }    
-        public string UserSenha { get; set; }    
+        public string UserNomeCompleto { get; set; } = String.Empty;
+        public string UserEmail { get; set; } = String.Empty;
+        public string UserSenha { get; set; } = String.Empty;
         public string? UserApelido { get; set; } 
         public string? UserCpf { get; set; } 
         public string? UserTelefone { get; set; } 

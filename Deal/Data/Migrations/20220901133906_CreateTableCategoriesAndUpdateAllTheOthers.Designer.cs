@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations
 {
     [DbContext(typeof(DealContext))]
-    partial class DealContextModelSnapshot : ModelSnapshot
+    [Migration("20220901133906_CreateTableCategoriesAndUpdateAllTheOthers")]
+    partial class CreateTableCategoriesAndUpdateAllTheOthers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,6 +32,10 @@ namespace Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AnunCep")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("AnunData")
                         .IsRequired()
                         .HasColumnType("text");
@@ -38,7 +44,19 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<byte[]>("AnunImage")
+                    b.Property<string>("AnunEndereco")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("AnunImage1")
+                        .IsRequired()
+                        .HasColumnType("BYTEA");
+
+                    b.Property<byte[]>("AnunImage2")
+                        .IsRequired()
+                        .HasColumnType("BYTEA");
+
+                    b.Property<byte[]>("AnunImage3")
                         .IsRequired()
                         .HasColumnType("BYTEA");
 

@@ -29,5 +29,17 @@ namespace Data.Repository
 
             return user;
         }
+
+        public int GetByEmail(string email)
+        {
+            Users user = new Users();
+
+            using (DealContext dealContexto = new DealContext())
+            {
+                user = dealContexto.User.Where(u => u.UserEmail == email).FirstOrDefault();
+            }
+
+            return user.Id;
+        }
     }
 }

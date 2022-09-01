@@ -4,12 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DealWebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class UserController : GenericController<Users, UsersRepository>
     {
-        public UserController() : base(new UsersRepository())
+        [HttpGet("email/{email}")]
+        public int GetByEmail(string email)
         {
+            UsersRepository _repository = new UsersRepository();
+
+            return _repository.GetByEmail(email);
         }
     }
 }

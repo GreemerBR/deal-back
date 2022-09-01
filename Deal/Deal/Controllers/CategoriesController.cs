@@ -3,7 +3,7 @@ using Data.Repository;
 
 namespace DealWebApi.Controllers
 {
-    public class AnnounceController : GenericController<Announces, AnnouncesRepository>
+    public class CategoriesController : GenericController<Categories, CategorieRepository>
     {
     }
 }
