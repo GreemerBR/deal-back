@@ -16,5 +16,17 @@ namespace Data.Repository
 
             return list;
         }
+
+        public override Categories GetById(int id)
+        {
+            Categories entity = null;
+
+            using (DealContext dealContext = new DealContext())
+            {
+                entity = dealContext.Categorie.Include("Announces").Where(c => c.Id == id).FirstOrDefault();
+            }
+
+            return entity;
+        }
     }
 }

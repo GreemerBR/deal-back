@@ -21,5 +21,8 @@ namespace Data.Model
 
         [Column(TypeName = "BYTEA")]
         public byte[]? UserImage { get; set; }
+
+        public ICollection<Announces> Announces { get; set; } = new List<Announces>();
+        public ICollection<FavoriteAnnounces> FavoriteAnnounces { get; set; } = new List<FavoriteAnnounces>();
     }
 }

@@ -16,31 +16,31 @@ namespace DealWebApi.Controllers
         }
 
         [HttpGet()]
-        public List<T> Get()
+        public virtual List<T> Get()
         {
             return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return _repository.GetById(id);
         }
 
         [HttpPost()]
-        public string Post(T model)
+        public virtual string Post(T model)
         {
             return _repository.Create(model);
         }
 
         [HttpDelete("{id}")]
-        public string Delete(int id)
+        public virtual string Delete(int id)
         {
             return _repository.Delete(id);
         }
 
         [HttpPut()]
-        public string Update(T model)
+        public virtual string Update(T model)
         {
             return _repository.Update(model);
         }

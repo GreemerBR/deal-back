@@ -1,5 +1,6 @@
 ﻿using Data.Model;
 using Data.Utils;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repository
 {
@@ -40,6 +41,18 @@ namespace Data.Repository
             }
 
             return user.Id;
+        }
+
+        public override Users GetById(int id)
+        {
+            Users entity = null;
+
+            using (DealContext dealContext = new DealContext())
+            {
+                entity = dealContext.User.Include("Announces").Include("FavoriteAnnounces").Where(c => c.Id == id).FirstOrDefault();
+            }
+
+            return entity;
         }
     }
 }

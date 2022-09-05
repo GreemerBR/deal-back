@@ -52,7 +52,7 @@ namespace Data.Repository
             }
 
             return entity;
-        }
+        }       
 
         public virtual string Update(T entity)
         {

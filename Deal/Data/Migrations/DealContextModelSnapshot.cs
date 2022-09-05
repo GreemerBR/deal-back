@@ -174,7 +174,7 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Data.Model.Users", "User")
-                        .WithMany()
+                        .WithMany("Announces")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -191,7 +191,7 @@ namespace Data.Migrations
                         .HasForeignKey("AnnounceId");
 
                     b.HasOne("Data.Model.Users", "User")
-                        .WithMany()
+                        .WithMany("FavoriteAnnounces")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -204,6 +204,13 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Model.Categories", b =>
                 {
                     b.Navigation("Announces");
+                });
+
+            modelBuilder.Entity("Data.Model.Users", b =>
+                {
+                    b.Navigation("Announces");
+
+                    b.Navigation("FavoriteAnnounces");
                 });
 #pragma warning restore 612, 618
         }
