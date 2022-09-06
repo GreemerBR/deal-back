@@ -49,7 +49,7 @@ namespace Data.Repository
 
             using (DealContext dealContext = new DealContext())
             {
-                entity = dealContext.User.Include("Announces").Include("FavoriteAnnounces").Where(c => c.Id == id).FirstOrDefault();
+                entity = dealContext.User.Include(user => user.Announces).Include(user => user.FavoriteAnnounces).ThenInclude(favAnnounce => favAnnounce.Announce).Where(c => c.Id == id).FirstOrDefault();
             }
 
             return entity;

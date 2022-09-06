@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations
 {
     [DbContext(typeof(DealContext))]
-    partial class DealContextModelSnapshot : ModelSnapshot
+    [Migration("20220906133328_AlterTableFavoriteAnnounces")]
+    partial class AlterTableFavoriteAnnounces
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,7 +185,7 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Model.FavoriteAnnounces", b =>
                 {
-                    b.HasOne("Data.Model.Announces", "Announce")
+                    b.HasOne("Data.Model.Announces", "Anun")
                         .WithMany()
                         .HasForeignKey("AnnounceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -195,7 +197,7 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Announce");
+                    b.Navigation("Anun");
 
                     b.Navigation("User");
                 });

@@ -15,7 +15,7 @@ namespace Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=grupo_2; Port=5432; Database=Deal; UserId=postgres; Password=123456");
+            optionsBuilder.UseNpgsql("Host=zuplae.vps-kinghost.net; Port=5442; Database=Deal; UserId=postgres; Password=123456");
         }
     }
 }
