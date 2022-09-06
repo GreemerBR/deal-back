@@ -14,6 +14,6 @@ namespace Data.Repository
             }
 
             return list;
-        }
+        }        
     }
 }

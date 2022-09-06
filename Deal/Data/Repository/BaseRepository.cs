@@ -1,4 +1,5 @@
 ﻿using Data.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repository
 {
@@ -22,7 +23,7 @@ namespace Data.Repository
             {
                 if (entity != null)
                 {
-                    dealContext.Entry<T>(entity).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                    dealContext.Entry<T>(entity).State = EntityState.Deleted;
                     dealContext.SaveChanges();
                 }
 
@@ -58,7 +59,7 @@ namespace Data.Repository
         {
             using (DealContext dealContext = new DealContext())
             {
-                dealContext.Entry<T>(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                dealContext.Entry<T>(entity).State = EntityState.Modified;
                 dealContext.SaveChanges();
             }
             return "Objeto alterado";
